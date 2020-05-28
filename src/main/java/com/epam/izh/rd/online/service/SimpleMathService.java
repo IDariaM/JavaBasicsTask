@@ -1,9 +1,6 @@
 package com.epam.izh.rd.online.service;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 
 public class SimpleMathService implements MathService {
@@ -19,15 +16,7 @@ public class SimpleMathService implements MathService {
      */
     @Override
     public int compare(int value1, int value2) {
-        if (value1 > value2) {
-            return 1;
-        }
-        if (value1 < value2) {
-            return -1;
-        }
-
-
-        return 0;
+        return Integer.compare(value1, value2);
     }
 
     /**
@@ -46,9 +35,9 @@ public class SimpleMathService implements MathService {
     @Override
     public int maxFrom(int[] values) {
         int max = values[0];
-        for (int i = 0; i < values.length; i++) {
-            if (max < values[i]) {
-                max = values[i];
+        for (int value : values) {
+            if (max < value) {
+                max = value;
             }
         }
         return max;
@@ -61,8 +50,8 @@ public class SimpleMathService implements MathService {
     @Override
     public int sum(int[] values) {
         int sum = 0;
-        for (int i = 0; i < values.length; i++) {
-            sum = sum + values[i];
+        for (int value : values) {
+            sum += value;
         }
         return sum;
     }
@@ -74,9 +63,9 @@ public class SimpleMathService implements MathService {
     @Override
     public int[] getEvenDigits(int[] values) {
         ArrayList<Integer> list = new ArrayList<>();
-        for (int i = 0; i < values.length; i++) {
-            if (values[i] % 2 == 0) {
-                list.add(values[i]);
+        for (int value : values) {
+            if (value % 2 == 0) {
+                list.add(value);
             }
         }
         int[] arr = new int[list.size()];
@@ -137,8 +126,8 @@ public class SimpleMathService implements MathService {
     @Override
     public int[] sort(int[] values) {
         ArrayList<Integer> list = new ArrayList<>();
-        for (int i = 0; i < values.length; i++) {
-            list.add(values[i]);
+        for (int value : values) {
+            list.add(value);
         }
         Collections.sort(list);
         int[] arr = new int[list.size()];
@@ -170,8 +159,8 @@ public class SimpleMathService implements MathService {
     @Override
     public int[] reverseArray(int[] values) {
         ArrayList<Integer> list = new ArrayList<>();
-        for (int i = 0; i < values.length; i++) {
-            list.add(values[i]);
+        for (int value : values) {
+            list.add(value);
         }
 
         Collections.reverse(list);
